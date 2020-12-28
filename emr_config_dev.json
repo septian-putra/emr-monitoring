@@ -1,0 +1,67 @@
+[
+    {
+        "classification": "yarn-site",
+        "properties": {
+            "yarn.nodemanager.pmem-check-enabled": "false",
+            "yarn.nodemanager.vmem-check-enabled": "false"
+        }
+    },
+    {
+        "Classification": "spark-env",
+        "Configurations": [
+            {
+                "Classification": "export",
+                "Properties": {
+                    "PYSPARK_PYTHON": "/usr/bin/python3"
+                }
+            }
+        ]
+    },
+    {
+        "classification": "spark",
+        "properties": {
+            "maximizeResourceAllocation": "false"
+        }
+    },
+    {
+        "classification": "spark-defaults",
+        "properties": {
+            "spark.executor.memory": "36G",
+            "spark.driver.memory": "36G",
+            "spark.yarn.scheduler.reporterThread.maxFailures": "5",
+            "spark.driver.cores": "5",
+            "spark.yarn.driver.memoryOverhead": "4G",
+            "spark.executor.heartbeatInterval": "60s",
+            "spark.rdd.compress": "true",
+            "spark.network.timeout": "800s",
+            "spark.executor.cores": "5",
+            "spark.memory.storageFraction": "0.30",
+            "spark.sql.shuffle.partitions": "170",
+            "spark.shuffle.spill.compress": "true",
+            "spark.shuffle.compress": "true",
+            "spark.storage.level": "MEMORY_AND_DISK_SER",
+            "spark.default.parallelism": "170",
+            "spark.serializer": "org.apache.spark.serializer.KryoSerializer",
+            "spark.memory.fraction": "0.80",
+            "spark.executor.extraJavaOptions": "-XX:+UseG1GC -XX:+UnlockDiagnosticVMOptions -XX:+G1SummarizeConcMark -XX:InitiatingHeapOccupancyPercent=35 -verbose:gc -XX:OnOutOfMemoryError='kill -9 %p'",
+            "spark.executor.instances": "14",
+            "spark.yarn.executor.memoryOverhead": "4G",
+            "spark.dynamicAllocation.enabled": "false",
+            "spark.driver.extraJavaOptions": "-XX:+UseG1GC -XX:+UnlockDiagnosticVMOptions -XX:+G1SummarizeConcMark -XX:InitiatingHeapOccupancyPercent=35 -verbose:gc -XX:OnOutOfMemoryError='kill -9 %p'",
+            "spark.sql.execution.arrow.enabled": "true"
+        }
+    },
+    {
+        "classification": "livy-conf",
+        "properties": {
+            "livy.server.session.timeout": "8h"
+        }
+    },
+    {
+        "classification": "jupyter-s3-conf",
+        "properties": {
+            "s3.persistence.bucket": "aws-emr-resources-428785023349-eu-west-1",
+            "s3.persistence.enabled": "true"
+        }
+    }
+]
